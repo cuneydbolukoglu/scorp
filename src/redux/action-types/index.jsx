@@ -1,0 +1,9 @@
+const USER_UPDATE = "USER_UPDATE";
+const USER_DELETE = "USER_DELETE";
+const LANG_UPDATE = "LANG_UPDATE";
+
+export {
+    USER_UPDATE,
+    USER_DELETE,
+    LANG_UPDATE
+}
