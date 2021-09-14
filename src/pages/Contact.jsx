@@ -32,7 +32,7 @@ const Contact = props => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        const contactFormValue = { name: name, email: email, country_code: country, phone: phone, text: text };
+        const contactFormValue = { name: name, email: email, country_code: country, phonenumber: phone.replaceAll('(','').replaceAll(')',''), text: text };
         const form = e.currentTarget;
 
         if (form.checkValidity() === false) {
@@ -94,7 +94,7 @@ const Contact = props => {
                         </Form.Label>
                         <FormattedMessage id='contact.page.phone' defaultMessage="Phone Number">
                             {(message) => (
-                                <Form.Control type="phone" onChange={(e) => setPhone(e.target.value)} placeholder={message + " 0(533) 999 99 99"} required pattern="(([\+]90?)|[0]?)([ ]?)(\([0-9]{3}\))([ ]?)([0-9]{3})(\s*[\-]?)([0-9]{2})(\s*[\-]?)([0-9]{2})" />
+                                <Form.Control type="phone" onChange={(e) => setPhone(e.target.value)} placeholder={"X(XXX) XXX XX XX"} required pattern="(([\+]90?)|[0]?)([ ]?)(\([0-9]{3}\))([ ]?)([0-9]{3})(\s*[\-]?)([0-9]{2})(\s*[\-]?)([0-9]{2})" />
                             )}
                         </FormattedMessage>
                     </Form.Group>
