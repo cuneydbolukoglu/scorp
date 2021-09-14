@@ -32,7 +32,7 @@ const Contact = props => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        const contactFormValue = { name: name, email: email, country_code: country, phonenumber: phone.replaceAll('(','').replaceAll(')',''), text: text };
+        const contactFormValue = { name: name, email: email, country_code: country, phonenumber: phone && phone.replaceAll('(','').replaceAll(')',''), text: text };
         const form = e.currentTarget;
 
         if (form.checkValidity() === false) {
