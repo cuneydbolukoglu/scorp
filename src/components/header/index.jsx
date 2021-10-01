@@ -6,12 +6,19 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { userDelete, langUpdate } from '../../redux/actions';
 import { FormattedMessage } from 'react-intl';
+import { useHistory } from 'react-router';
 
 const Header = props => {
+    const history = useHistory();
     const [showModal, setShowModal] = useState(false);
+    const [page, setPage] = useState(history.location.pathname);
     const userData = useSelector(state => state.userReducer);
     const lang = useSelector(state => state.langReducer);
 
+    history.listen(location => {
+        setPage(location.pathname);
+    })
+    
     return (
         <header>
             <Navbar collapseOnSelect expand="lg" bg="light" className="mb-5">
@@ -24,7 +31,12 @@ const Header = props => {
                             height="30"
                             className="d-inline-block align-top"
                         />{' '}
-                        <FormattedMessage id='header.logo' defaultMessage="Sample" />
+                        {
+                            page === '/' ?
+                                <FormattedMessage id='header.logo' defaultMessage="Sample" />
+                                : 
+                                <FormattedMessage id='header.contact' defaultMessage="Contact" />
+                        }
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse className="justify-content-end">

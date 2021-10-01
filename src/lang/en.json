@@ -6,6 +6,7 @@
     "header.contact.button": "Contact",
     "header.logout.button": "Logout",
     "header.login.button": "Login",
+    "header.contact": "Contact",
     "modal.title": "Login",
     "modal.name": "Name",
     "modal.email": "Email",

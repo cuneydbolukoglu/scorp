@@ -6,6 +6,7 @@
     "header.contact.button": "İletişim",
     "header.logout.button": "Çıkış Yap",
     "header.login.button": "Giriş Yap",
+    "header.contact": "İletişim",
     "modal.title": "Giriş Yap",
     "modal.name": "İsim",
     "modal.email": "Mail adresi",

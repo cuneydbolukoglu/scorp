@@ -21,19 +21,20 @@ const Contact = props => {
     const countryList = [
         { id: "TR", name: "Turkey" },
         { id: "US", name: "United States of America" },
-        { id: "GB", name: "Birleşik Krallık" },
-        { id: "DE", name: "Almanya" },
-        { id: "SE", name: "İsveç" },
+        { id: "GB", name: "United Kingdom" },
+        { id: "DE", name: "Germany" },
+        { id: "SE", name: "Sweden" },
         { id: "KE", name: "Kenya" },
-        { id: "BR", name: "Brezilya" },
-        { id: "ZW", name: "Zimbabve" }
+        { id: "BR", name: "Brazil" },
+        { id: "ZW", name: "Zimbabwe" }
     ]
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        const contactFormValue = { name: name, email: email, country_code: country, phonenumber: phone && phone.replaceAll('(','').replaceAll(')',''), text: text };
+
+        const contactFormValue = { name: name, email: email, country_code: country, phonenumber: phone, text: text };
         const form = e.currentTarget;
+
 
         if (form.checkValidity() === false) {
             e.stopPropagation();
@@ -94,7 +95,12 @@ const Contact = props => {
                         </Form.Label>
                         <FormattedMessage id='contact.page.phone' defaultMessage="Phone Number">
                             {(message) => (
-                                <Form.Control type="phone" onChange={(e) => setPhone(e.target.value)} placeholder={"X(XXX) XXX XX XX"} required pattern="(([\+]90?)|[0]?)([ ]?)(\([0-9]{3}\))([ ]?)([0-9]{3})(\s*[\-]?)([0-9]{2})(\s*[\-]?)([0-9]{2})" />
+                                <Form.Control
+                                    type="phone"
+                                    onChange={(e) => setPhone(e.target.value)}
+                                    placeholder={message}
+                                    required
+                                    pattern="(05)[0-9][0-9]([0-9]){3}([0-9]){2}([0-9]){2}" />
                             )}
                         </FormattedMessage>
                     </Form.Group>
